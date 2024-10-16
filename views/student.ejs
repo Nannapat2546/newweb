@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายการเช็คชื่อ</title>
+</head>
+<body>
+    <h1>รายการเช็คชื่อ</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ชื่อ</th>
+                <th>นามสกุล</th>
+                <th>วันเช็คชื่อ</th>
+                <th>สถานะ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% studentList.forEach(record => { %>
+                <tr>
+                    <td><%= record.id %></td>
+                    <td><%= record.first_name %></td>
+                    <td><%= record.last_name %></td>
+                    <td><%= record.active_date.toISOString().split('T')[0] %></td>
+                    <td><%= record.status === 'P' ? 'มาเรียน' : 'ขาดเรียน' %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <a href="/">กลับไปหน้าเช็คชื่อ</a>
+</body>
+</html>
